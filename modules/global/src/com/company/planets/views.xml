@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="planets_Spaceport" name="spaceport-view" extends="_local">
+        <property name="planet" view="_minimal">
+            <property name="picture" view="_minimal"/>
+        </property>
+        <property name="moon" view="_minimal">
+            <property name="picture" view="_minimal"/>
+        </property>
+        <property name="coordinates" view="_minimal">
+            <property name="latitude"/>
+            <property name="longitude"/>
+        </property>
+        <property name="carriers" view="_minimal"/>
+    </view>
+    <view entity="planets_Company" name="company-view" extends="_local"/>
+    <view entity="planets_Individual" name="individual-view" extends="_local"/>
+    <view entity="planets_Planet" name="planet-view" extends="_local">
+        <property name="atmosphere" view="_minimal">
+            <property name="atmosphere" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="planets_Moon" name="moon-view" extends="_local">
+        <property name="planet" view="_minimal"/>
+        <property name="atmosphere" view="_minimal"/>
+    </view>
+    <view entity="planets_Atmosphere" name="atmosphere-view" extends="_local">
+        <property name="gases" view="_minimal"/>
+    </view>
+    <view entity="planets_Carrier" name="carrier-view" extends="_local">
+        <property name="ports" view="_minimal">
+            <property name="isDefault"/>
+            <property name="coordinates" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="planets_WaybillItem" name="waybillItem-view" extends="_local">
+        <property name="waybill" view="_minimal">
+            <property name="departurePort" view="_minimal"/>
+            <property name="destinationPort" view="_minimal"/>
+            <property name="carrier" view="_minimal"/>
+            <property name="totalCharge"/>
+        </property>
+    </view>
+</views>

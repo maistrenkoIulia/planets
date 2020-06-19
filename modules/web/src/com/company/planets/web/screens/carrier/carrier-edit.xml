@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.planets.web.screens.carrier">
+    <data>
+        <instance id="carrierDc"
+                  class="com.company.planets.carrier.Carrier"
+                  view="carrier-view">
+            <loader/>
+            <collection id="portsDc" property="ports"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="carrierDc">
+            <column width="250px">
+                <textField id="nameField" property="name"/>
+            </column>
+        </form>
+        <groupBox id="portsBox" caption="msg://com.company.planets.carrier/Carrier.ports">
+            <table id="portsTable" dataContainer="portsDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="name"/>
+                    <column id="isDefault"/>
+                    <column id="coordinates"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="portsTable.add"/>
+                    <button action="portsTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

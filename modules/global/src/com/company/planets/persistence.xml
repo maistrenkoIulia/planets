@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="planets" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.planets.astronomicalBody.AstronomicalBody</class>
+        <class>com.company.planets.moon.Moon</class>
+        <class>com.company.planets.planet.Planet</class>
+        <class>com.company.planets.gas.Gas</class>
+        <class>com.company.planets.atmosphericGas.AtmosphericGas</class>
+        <class>com.company.planets.atmosphere.Atmosphere</class>
+        <class>com.company.planets.discounts.Discounts</class>
+        <class>com.company.planets.individual.Individual</class>
+        <class>com.company.planets.customer.Customer</class>
+        <class>com.company.planets.company.Company</class>
+        <class>com.company.planets.demensions.Demensions</class>
+        <class>com.company.planets.waybillItem.WaybillItem</class>
+        <class>com.company.planets.waybill.Waybill</class>
+        <class>com.company.planets.coordinates.Coordinates</class>
+        <class>com.company.planets.spaceport.Spaceport</class>
+        <class>com.company.planets.carrier.Carrier</class>
+    </persistence-unit>
+</persistence>

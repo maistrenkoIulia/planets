@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-planets" insertBefore="administration">
+        <item screen="planets_Spaceport.browse"/>
+        <item screen="planets_Company.browse"/>
+        <item screen="planets_Individual.browse"/>
+        <item screen="planets_Planet.browse"/>
+        <item screen="planets_Moon.browse"/>
+        <item screen="planets_Atmosphere.browse"/>
+        <item screen="planets_Carrier.browse"/>
+    </menu>
+</menu-config>

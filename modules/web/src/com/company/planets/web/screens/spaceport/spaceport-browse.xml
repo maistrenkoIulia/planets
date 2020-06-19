@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="spaceportsTable"
+        messagesPack="com.company.planets.web.screens.spaceport">
+    <data readOnly="true">
+        <collection id="spaceportsDc"
+                    class="com.company.planets.spaceport.Spaceport"
+                    view="spaceport-view">
+            <loader id="spaceportsDl">
+                <query>
+                    <![CDATA[select e from planets_Spaceport e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="spaceportsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="spaceportsTable"
+                dataLoader="spaceportsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="spaceportsTable"
+                    width="100%"
+                    dataContainer="spaceportsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="isDefault"/>
+                <column id="planet.name" caption="planet"/>
+                <column id="planet.picture.name" caption="planet picture"/>
+                <column id="moon.name" caption="moon"/>
+                <column id="moon.picture.name" caption="moon picture"/>
+                <column id="coordinates.latitude"/>
+                <column id="coordinates.longitude"/>
+                <column id="carriers.name" caption="carriers"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="spaceportsTable.create"/>
+                <button id="editBtn" action="spaceportsTable.edit"/>
+                <button id="removeBtn" action="spaceportsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

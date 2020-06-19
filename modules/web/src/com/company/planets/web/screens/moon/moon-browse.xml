@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="moonsTable"
+        messagesPack="com.company.planets.web.screens.moon">
+    <data readOnly="true">
+        <collection id="moonsDc"
+                    class="com.company.planets.moon.Moon"
+                    view="moon-view">
+            <loader id="moonsDl">
+                <query>
+                    <![CDATA[select e from planets_Moon e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="moonsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="moonsTable"
+                dataLoader="moonsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="moonsTable"
+                    width="100%"
+                    dataContainer="moonsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="mass"/>
+                <column id="planet"/>
+                <column id="atmosphere"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="moonsTable.create"/>
+                <button id="editBtn" action="moonsTable.edit"/>
+                <button id="removeBtn" action="moonsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
