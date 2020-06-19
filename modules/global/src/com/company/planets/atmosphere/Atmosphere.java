@@ -1,5 +1,6 @@
 package com.company.planets.atmosphere;
 
+import com.company.planets.atmosphericGas.AtmosphericGas;
 import com.company.planets.moon.Moon;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
@@ -20,10 +21,18 @@ public class Atmosphere extends StandardEntity {
     protected Double pressure;
 
     @OneToMany(mappedBy = "atmosphere")
-    protected List<Atmosphere> gases;
+    protected List<AtmosphericGas> gases;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "atmosphere")
     protected Moon moon;
+
+    public List<AtmosphericGas> getGases() {
+        return gases;
+    }
+
+    public void setGases(List<AtmosphericGas> gases) {
+        this.gases = gases;
+    }
 
     public Moon getMoon() {
         return moon;
@@ -31,14 +40,6 @@ public class Atmosphere extends StandardEntity {
 
     public void setMoon(Moon moon) {
         this.moon = moon;
-    }
-
-    public List<Atmosphere> getGases() {
-        return gases;
-    }
-
-    public void setGases(List<Atmosphere> gases) {
-        this.gases = gases;
     }
 
     public Double getPressure() {

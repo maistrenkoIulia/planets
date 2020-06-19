@@ -27,7 +27,6 @@ create table PLANETS_ATMOSPHERE (
     --
     DESCRIPTION varchar(255),
     PRESSURE double precision,
-    ATMOSPHERE_ID varchar(36),
     --
     primary key (ID)
 )^
@@ -45,6 +44,7 @@ create table PLANETS_ATMOSPHERE_GAS (
     --
     GAS_ID varchar(36),
     VOLUME double precision,
+    ATMOSPHERE_ID varchar(36),
     --
     primary key (ID)
 )^

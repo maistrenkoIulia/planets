@@ -36,9 +36,7 @@
                 <column id="name"/>
                 <column id="isDefault"/>
                 <column id="planet.name" caption="planet"/>
-                <column id="planet.picture.name" caption="planet picture"/>
                 <column id="moon.name" caption="moon"/>
-                <column id="moon.picture.name" caption="moon picture"/>
                 <column id="coordinates.latitude"/>
                 <column id="coordinates.longitude"/>
                 <column id="carriers.name" caption="carriers"/>

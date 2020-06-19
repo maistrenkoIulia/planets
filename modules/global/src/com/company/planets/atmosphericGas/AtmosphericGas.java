@@ -1,5 +1,6 @@
 package com.company.planets.atmosphericGas;
 
+import com.company.planets.atmosphere.Atmosphere;
 import com.company.planets.gas.Gas;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
@@ -16,6 +17,17 @@ public class AtmosphericGas extends StandardEntity {
 
     @Column(name = "VOLUME")
     protected Double volume;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ATMOSPHERE_ID")
+    protected Atmosphere atmosphere;
+
+    public Atmosphere getAtmosphere() {
+        return atmosphere;
+    }
+
+    public void setAtmosphere(Atmosphere atmosphere) {
+        this.atmosphere = atmosphere;
+    }
 
     public Double getVolume() {
         return volume;

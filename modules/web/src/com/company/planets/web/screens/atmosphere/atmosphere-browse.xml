@@ -35,7 +35,7 @@
             <columns>
                 <column id="description"/>
                 <column id="pressure"/>
-                <column id="atmosphere"/>
+                <column id="gases.gas.name"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
