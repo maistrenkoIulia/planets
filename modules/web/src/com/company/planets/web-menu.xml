@@ -8,5 +8,11 @@
         <item screen="planets_Moon.browse"/>
         <item screen="planets_Atmosphere.browse"/>
         <item screen="planets_Carrier.browse"/>
+        <item screen="planets_AtmosphereGas.browse"/>
+        <item screen="planets_Gas.browse"/>
+        <item screen="planets_Discounts.browse"/>
+        <item screen="planets_Waybill.browse"/>
+        <item screen="planets_WaybillItem.browse"/>
+        <item screen="planets_Customer.browse"/>
     </menu>
 </menu-config>

@@ -5,6 +5,8 @@ import com.company.planets.customer.Customer;
 import com.company.planets.spaceport.Spaceport;
 import com.company.planets.waybillItem.WaybillItem;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.Lookup;
+import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.persistence.*;
@@ -27,6 +29,7 @@ public class Waybill extends StandardEntity {
     @JoinColumn(name = "SHIPPER_ID")
     protected Customer shipper;
 
+    @Lookup(type = LookupType.DROPDOWN, actions = {})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CONSIGNEE_ID")
     protected Customer consignee;
@@ -54,10 +57,6 @@ public class Waybill extends StandardEntity {
 
     public BigDecimal getTotalCharge() {
         return totalCharge;
-    }
-
-    public void setTotalCharge(BigDecimal totalCharge) {
-        this.totalCharge = totalCharge;
     }
 
     public Double getTotalWeight() {

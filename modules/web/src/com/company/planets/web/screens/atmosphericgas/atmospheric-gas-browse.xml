@@ -2,49 +2,47 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://browseCaption"
-        focusComponent="moonsTable"
-        messagesPack="com.company.planets.web.screens.moon">
+        focusComponent="atmosphericGasesTable"
+        messagesPack="com.company.planets.web.screens.atmosphericgas">
     <data readOnly="true">
-        <collection id="moonsDc"
-                    class="com.company.planets.moon.Moon"
-                    view="moon-view">
-            <loader id="moonsDl">
+        <collection id="atmosphericGasesDc"
+                    class="com.company.planets.atmosphericGas.AtmosphericGas"
+                    view="atmosphericGas-view">
+            <loader id="atmosphericGasesDl">
                 <query>
-                    <![CDATA[select e from planets_Moon e]]>
+                    <![CDATA[select e from planets_AtmosphereGas e]]>
                 </query>
             </loader>
         </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="moonsTable"
+    <layout expand="atmosphericGasesTable"
             spacing="true">
         <filter id="filter"
-                applyTo="moonsTable"
-                dataLoader="moonsDl">
+                applyTo="atmosphericGasesTable"
+                dataLoader="atmosphericGasesDl">
             <properties include=".*"/>
         </filter>
-        <groupTable id="moonsTable"
+        <groupTable id="atmosphericGasesTable"
                     width="100%"
-                    dataContainer="moonsDc">
+                    dataContainer="atmosphericGasesDc">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="name"/>
-                <column id="mass"/>
-                <column id="planet"/>
+                <column id="gas"/>
+                <column id="volume"/>
                 <column id="atmosphere"/>
-                <column id="planet.picture"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="moonsTable.create"/>
-                <button id="editBtn" action="moonsTable.edit"/>
-                <button id="removeBtn" action="moonsTable.remove"/>
+                <button id="createBtn" action="atmosphericGasesTable.create"/>
+                <button id="editBtn" action="atmosphericGasesTable.edit"/>
+                <button id="removeBtn" action="atmosphericGasesTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

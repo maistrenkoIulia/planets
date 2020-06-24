@@ -17,41 +17,69 @@
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="planetsTable"
-            spacing="true">
-        <filter id="filter"
-                applyTo="planetsTable"
-                dataLoader="planetsDl">
-            <properties include=".*"/>
-        </filter>
-        <groupTable id="planetsTable"
-                    width="100%"
-                    dataContainer="planetsDc">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-            </actions>
+    <layout spacing="true">
+        <grid spacing="true">
             <columns>
-                <column id="name"/>
-                <column id="mass"/>
-                <column id="semiMajorAxis"/>
-                <column id="orbitalPeriod"/>
-                <column id="rotationPeriod"/>
-                <column id="atmosphere"/>
-                <column id="rings"/>
+                <column flex="3"/>
+                <column flex="1"/>
             </columns>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="planetsTable.create"/>
-                <button id="editBtn" action="planetsTable.edit"/>
-                <button id="removeBtn" action="planetsTable.remove"/>
-            </buttonsPanel>
-        </groupTable>
+            <rows>
+                <row>
+                    <filter id="filter"
+                            width="100%"
+                            applyTo="planetsTable"
+                            dataLoader="planetsDl">
+                        <properties include=".*"/>
+                    </filter>
+                </row>
+                <row>
+                    <groupTable id="planetsTable"
+                                dataContainer="planetsDc">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="name"/>
+                            <column id="mass"/>
+                            <column id="semiMajorAxis"/>
+                            <column id="orbitalPeriod"/>
+                            <column id="rotationPeriod"/>
+                            <column id="atmosphere"/>
+                            <column id="rings"/>
+                            <column id="picture"/>
+                        </columns>
+                        <rowsCount/>
+                        <buttonsPanel id="buttonsPanel"
+                                      alwaysVisible="true">
+                            <button id="createBtn" action="planetsTable.create"/>
+                            <button id="editBtn" action="planetsTable.edit"/>
+                            <button id="removeBtn" action="planetsTable.remove"/>
+                        </buttonsPanel>
+                    </groupTable>
+                    <vbox spacing="true"
+                    width="AUTO">
+                        <groupBox id="userImageBox"
+                                  caption="Planet picture"
+                                  align="MIDDLE_CENTER">
+                            <image id="userImage"
+                                   height="250px"
+                                   scaleMode="CONTAIN"
+                                   width="250px"/>
+                            <upload id="userImageUpload"
+                                    align="MIDDLE_CENTER"
+                                    dataContainer="planetsDc"
+                                    property="picture"/>
+                        </groupBox>
+                    </vbox>
+                </row>
+            </rows>
+        </grid>
         <hbox id="lookupActions" spacing="true" visible="false">
             <button action="lookupSelectAction"/>
             <button action="lookupCancelAction"/>
         </hbox>
+
     </layout>
 </window>

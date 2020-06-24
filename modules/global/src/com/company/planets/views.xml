@@ -14,9 +14,12 @@
     <view entity="planets_Individual" name="individual-view" extends="_local"/>
     <view entity="planets_Planet" name="planet-view" extends="_local">
         <property name="atmosphere" view="_minimal"/>
+        <property name="picture" view="_minimal"/>
     </view>
     <view entity="planets_Moon" name="moon-view" extends="_local">
-        <property name="planet" view="_minimal"/>
+        <property name="planet" view="_minimal">
+            <property name="picture" view="_minimal"/>
+        </property>
         <property name="atmosphere" view="_minimal"/>
     </view>
     <view entity="planets_Atmosphere" name="atmosphere-view" extends="_local">
@@ -27,7 +30,10 @@
     <view entity="planets_Carrier" name="carrier-view" extends="_local">
         <property name="ports" view="_minimal">
             <property name="isDefault"/>
-            <property name="coordinates" view="_minimal"/>
+            <property name="coordinates" view="_minimal">
+                <property name="latitude"/>
+                <property name="longitude"/>
+            </property>
         </property>
     </view>
     <view entity="planets_WaybillItem" name="waybillItem-view" extends="_local">
@@ -37,5 +43,18 @@
             <property name="carrier" view="_minimal"/>
             <property name="totalCharge"/>
         </property>
+    </view>
+    <view entity="planets_AtmosphereGas" name="atmosphericGas-view" extends="_local">
+        <property name="gas" view="_minimal"/>
+        <property name="atmosphere" view="_minimal">
+            <property name="pressure"/>
+        </property>
+    </view>
+    <view entity="planets_Waybill" name="waybill-view" extends="_local">
+        <property name="consignee" view="_minimal"/>
+        <property name="departurePort" view="_minimal"/>
+        <property name="destinationPort" view="_minimal"/>
+        <property name="carrier" view="_minimal"/>
+        <property name="items" view="_minimal"/>
     </view>
 </views>

@@ -37,8 +37,8 @@
             </table>
         </groupBox>
         <hbox id="editActions" spacing="true">
-            <button action="windowCommitAndClose"/>
-            <button action="windowClose"/>
+            <button action="windowCommitAndClose" caption="Ok"/>
+            <button action="windowClose" caption="Cancel"/>
         </hbox>
     </layout>
 </window>

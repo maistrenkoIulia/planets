@@ -2,49 +2,49 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://browseCaption"
-        focusComponent="moonsTable"
-        messagesPack="com.company.planets.web.screens.moon">
+        focusComponent="waybillItemsTable"
+        messagesPack="com.company.planets.web.screens.waybillitem">
     <data readOnly="true">
-        <collection id="moonsDc"
-                    class="com.company.planets.moon.Moon"
-                    view="moon-view">
-            <loader id="moonsDl">
+        <collection id="waybillItemsDc"
+                    class="com.company.planets.waybillItem.WaybillItem"
+                    view="waybillItem-view">
+            <loader id="waybillItemsDl">
                 <query>
-                    <![CDATA[select e from planets_Moon e]]>
+                    <![CDATA[select e from planets_WaybillItem e]]>
                 </query>
             </loader>
         </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="moonsTable"
+    <layout expand="waybillItemsTable"
             spacing="true">
         <filter id="filter"
-                applyTo="moonsTable"
-                dataLoader="moonsDl">
+                applyTo="waybillItemsTable"
+                dataLoader="waybillItemsDl">
             <properties include=".*"/>
         </filter>
-        <groupTable id="moonsTable"
+        <groupTable id="waybillItemsTable"
                     width="100%"
-                    dataContainer="moonsDc">
+                    dataContainer="waybillItemsDc">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
+                <column id="number"/>
                 <column id="name"/>
-                <column id="mass"/>
-                <column id="planet"/>
-                <column id="atmosphere"/>
-                <column id="planet.picture"/>
+                <column id="weight"/>
+                <column id="charge"/>
+                <column id="waybill"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="moonsTable.create"/>
-                <button id="editBtn" action="moonsTable.edit"/>
-                <button id="removeBtn" action="moonsTable.remove"/>
+                <button id="createBtn" action="waybillItemsTable.create"/>
+                <button id="editBtn" action="waybillItemsTable.edit"/>
+                <button id="removeBtn" action="waybillItemsTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

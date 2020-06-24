@@ -35,11 +35,9 @@
             <columns>
                 <column id="name"/>
                 <column id="isDefault"/>
-                <column id="planet.name" caption="planet"/>
-                <column id="moon.name" caption="moon"/>
-                <column id="coordinates.latitude"/>
-                <column id="coordinates.longitude"/>
-                <column id="carriers.name" caption="carriers"/>
+                <column id="planet.name" caption="planet name"/>
+                <column id="moon.name" caption="moon name"/>
+                <column id="carriers"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
