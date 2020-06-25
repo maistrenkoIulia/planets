@@ -4,6 +4,7 @@ import com.company.planets.carrier.Carrier;
 import com.company.planets.customer.Customer;
 import com.company.planets.spaceport.Spaceport;
 import com.company.planets.waybillItem.WaybillItem;
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
@@ -13,6 +14,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
+@NamePattern("%s|reference")
 @Table(name = "PLANETS_WAYBILL")
 @Entity(name = "planets_Waybill")
 public class Waybill extends StandardEntity {

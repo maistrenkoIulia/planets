@@ -29,6 +29,7 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </pickerField>
+                <upload id="pictureField" property="picture"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

@@ -34,7 +34,7 @@
             </actions>
             <columns>
                 <column id="gas"/>
-                <column id="volume"/>
+                <column id="volume" caption="Volume, %"/>
             </columns>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">

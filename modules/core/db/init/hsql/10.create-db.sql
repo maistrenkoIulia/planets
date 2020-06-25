@@ -42,8 +42,8 @@ create table PLANETS_ATMOSPHERE_GAS (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    GAS_ID varchar(36),
-    VOLUME double precision,
+    GAS_ID varchar(36) not null,
+    VOLUME double precision not null,
     ATMOSPHERE_ID varchar(36),
     --
     primary key (ID)

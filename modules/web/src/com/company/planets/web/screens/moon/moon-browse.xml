@@ -17,39 +17,62 @@
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="moonsTable"
+    <layout
             spacing="true">
-        <filter id="filter"
-                applyTo="moonsTable"
-                dataLoader="moonsDl">
-            <properties include=".*"/>
-        </filter>
-        <groupTable id="moonsTable"
-                    width="100%"
-                    dataContainer="moonsDc">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-            </actions>
-            <columns>
-                <column id="name"/>
-                <column id="mass"/>
-                <column id="planet"/>
-                <column id="atmosphere"/>
-                <column id="planet.picture"/>
+        <grid spacing="true">
+            <columns count="2">
             </columns>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="moonsTable.create"/>
-                <button id="editBtn" action="moonsTable.edit"/>
-                <button id="removeBtn" action="moonsTable.remove"/>
-            </buttonsPanel>
-        </groupTable>
-        <hbox id="lookupActions" spacing="true" visible="false">
-            <button action="lookupSelectAction"/>
-            <button action="lookupCancelAction"/>
-        </hbox>
+            <rows>
+                <row>
+                    <filter id="filter"
+                            width="100%"
+                            applyTo="moonsTable"
+                            dataLoader="moonsDl">
+                        <properties include=".*"/>
+                    </filter>
+                </row>
+                <row>
+                    <groupTable id="moonsTable"
+                                width="100%"
+                                dataContainer="moonsDc">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="name"/>
+                            <column id="mass"/>
+                            <column id="planet"/>
+                            <column id="atmosphere"/>
+                            <column id="picture"/>
+                        </columns>
+                        <rowsCount/>
+                        <buttonsPanel id="buttonsPanel"
+                                      alwaysVisible="true">
+                            <button id="createBtn" action="moonsTable.create"/>
+                            <button id="editBtn" action="moonsTable.edit"/>
+                            <button id="removeBtn" action="moonsTable.remove"/>
+                        </buttonsPanel>
+                    </groupTable>
+                    <vbox spacing="true"
+                          width="AUTO">
+                        <groupBox id="userImageBox"
+                                  caption="Planet picture"
+                                  align="MIDDLE_CENTER">
+                            <image id="userImage"
+                                   height="250px"
+                                   scaleMode="CONTAIN"
+                                   width="250px"/>
+                            <upload id="userImageUpload"
+                                    align="MIDDLE_CENTER"
+                                    dataContainer="moonsDc"
+                                    property="picture"/>
+                        </groupBox>
+                    </vbox>
+
+                </row>
+            </rows>
+        </grid>
     </layout>
 </window>

@@ -21,7 +21,7 @@
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </pickerField>
-                <textField id="volumeField" property="volume"/>
+                <textField id="volumeField" property="volume" caption="Volume, %"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

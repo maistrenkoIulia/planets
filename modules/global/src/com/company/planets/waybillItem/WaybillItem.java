@@ -33,6 +33,10 @@ public class WaybillItem extends StandardEntity {
     })
     protected Demensions dim;
 
+    public void setCharge(BigDecimal charge) {
+        this.charge = charge;
+    }
+
     @Column(name = "CHARGE")
     protected BigDecimal charge;
 

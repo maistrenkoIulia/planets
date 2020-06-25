@@ -17,10 +17,9 @@
         <property name="picture" view="_minimal"/>
     </view>
     <view entity="planets_Moon" name="moon-view" extends="_local">
-        <property name="planet" view="_minimal">
-            <property name="picture" view="_minimal"/>
-        </property>
+        <property name="planet" view="_minimal"/>
         <property name="atmosphere" view="_minimal"/>
+        <property name="picture" view="_minimal"/>
     </view>
     <view entity="planets_Atmosphere" name="atmosphere-view" extends="_local">
         <property name="gases" view="_minimal">
