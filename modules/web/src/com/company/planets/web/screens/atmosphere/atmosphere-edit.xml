@@ -8,17 +8,8 @@
                   class="com.company.planets.atmosphere.Atmosphere"
                   view="atmosphere-view">
             <loader/>
+            <collection id="gasesDc" property="gases"/>
         </instance>
-        <collection id="atmosphericGasesDc" class="com.company.planets.atmosphericGas.AtmosphericGas">
-            <view extends="_local">
-                <property name="gas" view="_minimal"/>
-            </view>
-            <loader id="atmosphericGasesDl">
-                <query>
-                    <![CDATA[select e from planets_AtmosphereGas e]]>
-                </query>
-            </loader>
-        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
@@ -32,16 +23,12 @@
         <groupBox id="gasesBox"
                   caption="Atmospheric gases">
             <table id="gasesTable"
-                   dataContainer="atmosphericGasesDc"
+                   dataContainer="gasesDc"
                    height="200px"
                    width="100%">
                 <actions>
-                    <action id="create"
-                            type="create"/>
-                    <action id="edit"
-                            type="edit"/>
-                    <action id="remove"
-                            type="remove"/>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
                 </actions>
                 <columns>
                     <column id="gas"/>
@@ -49,11 +36,9 @@
                 </columns>
                 <buttonsPanel>
                     <button id="createBtn"
-                            action="gasesTable.create"/>
+                            action="gasesTable.add"/>
                     <button id="editBtn"
-                            action="gasesTable.edit"/>
-                    <button id="removeBtn"
-                            action="gasesTable.remove"/>
+                            action="gasesTable.exclude"/>
                 </buttonsPanel>
             </table>
         </groupBox>
