@@ -9,6 +9,16 @@
                   view="atmosphere-view">
             <loader/>
         </instance>
+        <collection id="atmosphericGasesDc" class="com.company.planets.atmosphericGas.AtmosphericGas">
+            <view extends="_local">
+                <property name="gas" view="_minimal"/>
+            </view>
+            <loader id="atmosphericGasesDl">
+                <query>
+                    <![CDATA[select e from planets_AtmosphereGas e]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
@@ -17,17 +27,39 @@
             <column width="250px">
                 <textField id="descriptionField" property="description"/>
                 <textField id="pressureField" property="pressure"/>
-                <pickerField id="gasesField" property= "gases.gas.name">
-                    <actions>
-                        <action id="lookup" type="picker_lookup"/>
-                        <action id="clear" type="picker_clear"/>
-                    </actions>
-                </pickerField>
             </column>
         </form>
+        <groupBox id="gasesBox"
+                  caption="Atmospheric gases">
+            <table id="gasesTable"
+                   dataContainer="atmosphericGasesDc"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"
+                            type="create"/>
+                    <action id="edit"
+                            type="edit"/>
+                    <action id="remove"
+                            type="remove"/>
+                </actions>
+                <columns>
+                    <column id="gas"/>
+                    <column id="volume"/>
+                </columns>
+                <buttonsPanel>
+                    <button id="createBtn"
+                            action="gasesTable.create"/>
+                    <button id="editBtn"
+                            action="gasesTable.edit"/>
+                    <button id="removeBtn"
+                            action="gasesTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
-            <button action="windowCommitAndClose"/>
-            <button action="windowClose"/>
+            <button action="windowCommitAndClose" caption="Ok"/>
+            <button action="windowClose" caption="Cancel"/>
         </hbox>
     </layout>
 </window>

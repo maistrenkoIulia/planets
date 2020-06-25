@@ -37,7 +37,7 @@
                 <column id="name"/>
                 <column id="weight"/>
                 <column id="charge"/>
-                <column id="waybill"/>
+                <column id="waybill.reference"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

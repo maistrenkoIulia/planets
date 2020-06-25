@@ -33,9 +33,9 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="description"/>
                 <column id="pressure"/>
-                <column id="gases.gas.name"/>
+                <column id="description"/>
+                <column id="gases"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

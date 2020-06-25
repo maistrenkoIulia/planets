@@ -17,6 +17,13 @@
                 </query>
             </loader>
         </collection>
+        <collection id="waybillItemsDc" class="com.company.planets.waybillItem.WaybillItem" view="waybillItem-view">
+            <loader id="waybillItemsDl">
+                <query>
+                    <![CDATA[select e from planets_WaybillItem e ]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
@@ -51,6 +58,36 @@
                 <textField id="totalChargeField" property="totalCharge"/>
             </column>
         </form>
+        <groupBox id="waybillItems"
+                  caption="Waybill Items">
+            <table id="itemTable"
+            dataContainer="waybillItemsDc"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"
+                            type="create"/>
+                    <action id="edit"
+                            type="edit"/>
+                    <action id="remove"
+                            type="remove"/>
+                </actions>
+            <columns>
+                <column id="number"/>
+                <column id="name"/>
+                <column id="weight"/>
+                <column id="charge"/>
+                </columns>
+                <buttonsPanel>
+                    <button id="createBtn"
+                            action="itemTable.create"/>
+                    <button id="editBtn"
+                            action="itemTable.edit"/>
+                    <button id="removeBtn"
+                            action="itemTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose" caption="Ok"/>
             <button action="windowClose" caption="Cancel"/>

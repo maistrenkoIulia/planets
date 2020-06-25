@@ -35,9 +35,7 @@
             <columns>
                 <column id="gas"/>
                 <column id="volume"/>
-                <column id="atmosphere"/>
             </columns>
-            <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn" action="atmosphericGasesTable.create"/>
