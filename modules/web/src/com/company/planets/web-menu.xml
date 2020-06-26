@@ -16,7 +16,6 @@
         <item screen="planets_Gas.browse"/>
         <separator/>
         <item screen="planets_Waybill.browse"/>
-        <item screen="planets_WaybillItem.browse"/>
 
     </menu>
 </menu-config>

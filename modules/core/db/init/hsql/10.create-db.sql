@@ -150,7 +150,7 @@ create table PLANETS_WAYBILL_ITEM (
     NAME varchar(255),
     WEIGHT double precision,
     CHARGE decimal(19, 2),
-    WAYBILL_ID varchar(36),
+    WAYBILL_ID varchar(36) not null,
     --
     primary key (ID)
 )^

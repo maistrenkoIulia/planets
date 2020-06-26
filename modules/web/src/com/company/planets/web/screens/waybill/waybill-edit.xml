@@ -8,19 +8,21 @@
                   class="com.company.planets.waybill.Waybill"
                   view="waybill-view">
             <loader/>
+            <collection id="waybillItemsDc" property="items"/>
         </instance>
-        <collection id="customersDc" class="com.company.planets.customer.Customer">
+        <collection id="astronomicalBodiesDc" class="com.company.planets.astronomicalBody.AstronomicalBody">
             <view extends="_local"/>
-            <loader id="customersDl">
+            <loader id="astronomicalBodiesDl">
                 <query>
-                    <![CDATA[select e from planets_Customer e]]>
+                    <![CDATA[select e from null e]]>
                 </query>
             </loader>
         </collection>
-        <collection id="waybillItemsDc" class="com.company.planets.waybillItem.WaybillItem" view="waybillItem-view">
-            <loader id="waybillItemsDl">
+        <collection id="planetsDc" class="com.company.planets.planet.Planet">
+            <view extends="_local"/>
+            <loader id="planetsDl">
                 <query>
-                    <![CDATA[select e from planets_WaybillItem e ]]>
+                    <![CDATA[select e from planets_Planet e]]>
                 </query>
             </loader>
         </collection>
@@ -31,11 +33,21 @@
         <form id="form" dataContainer="waybillDc">
             <column width="250px">
                 <textField id="referenceField" property="reference"/>
-                <lookupField id="consigneeField"
-                             caption="Consignee"
-                             dataContainer="customersDc"
-                             property="name">
-                </lookupField>
+                <pickerField id="consigneeField" property="consignee" caption="Consignee">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="shipperField" property="shipper" caption="Shipper">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <lookupField id="depart" dataContainer="planetsDc" property="name" caption="Departure"/>
+                <lookupField id="destination" dataContainer="planetsDc" property="name"
+                             caption="Destination"/>
                 <pickerField id="departurePortField" property="departurePort">
                     <actions>
                         <action id="lookup" type="picker_lookup"/>
@@ -61,7 +73,7 @@
         <groupBox id="waybillItems"
                   caption="Waybill Items">
             <table id="itemTable"
-            dataContainer="waybillItemsDc"
+                   dataContainer="waybillItemsDc"
                    height="200px"
                    width="100%">
                 <actions>
@@ -72,11 +84,11 @@
                     <action id="remove"
                             type="remove"/>
                 </actions>
-            <columns>
-                <column id="number"/>
-                <column id="name"/>
-                <column id="weight"/>
-                <column id="charge"/>
+                <columns>
+                    <column id="number"/>
+                    <column id="name"/>
+                    <column id="weight"/>
+                    <column id="charge"/>
                 </columns>
                 <buttonsPanel>
                     <button id="createBtn"

@@ -25,9 +25,10 @@ public class SpaceportEdit extends StandardEditor<Spaceport> {
     @Inject
     private PickerField<Planet> planetField;
 
-    @Subscribe("Ok")
-    public void onOkClick(Button.ClickEvent event) {
-        if (moonField.getValue() !=null && planetField.getValue() != null) {
+
+    @Subscribe
+    public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
+        if (moonField.getValue() != null && planetField.getValue() != null) {
             throw new ValidationException("Moon and Planet should not be both filled");
         }
     }

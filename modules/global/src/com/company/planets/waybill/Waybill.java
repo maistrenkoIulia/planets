@@ -4,10 +4,13 @@ import com.company.planets.carrier.Carrier;
 import com.company.planets.customer.Customer;
 import com.company.planets.spaceport.Spaceport;
 import com.company.planets.waybillItem.WaybillItem;
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.persistence.*;
@@ -27,11 +30,12 @@ public class Waybill extends StandardEntity {
     @JoinColumn(name = "CREATOR_ID")
     protected User creator;
 
+    @Lookup(type = LookupType.SCREEN, actions = {"lookup", "open"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHIPPER_ID")
     protected Customer shipper;
 
-    @Lookup(type = LookupType.DROPDOWN, actions = {})
+    @Lookup(type = LookupType.SCREEN, actions = {"lookup", "open"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CONSIGNEE_ID")
     protected Customer consignee;
@@ -48,6 +52,8 @@ public class Waybill extends StandardEntity {
     @JoinColumn(name = "CARRIER_ID")
     protected Carrier carrier;
 
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "waybill")
     protected List<WaybillItem> items;
 
@@ -56,6 +62,10 @@ public class Waybill extends StandardEntity {
 
     @Column(name = "TOTAL_CHARGE")
     protected BigDecimal totalCharge;
+
+    public void setTotalCharge(BigDecimal totalCharge) {
+        this.totalCharge = totalCharge;
+    }
 
     public BigDecimal getTotalCharge() {
         return totalCharge;
@@ -132,4 +142,5 @@ public class Waybill extends StandardEntity {
     public void setReference(String reference) {
         this.reference = reference;
     }
+
 }

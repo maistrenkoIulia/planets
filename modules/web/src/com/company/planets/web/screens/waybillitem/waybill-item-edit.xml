@@ -17,6 +17,9 @@
             <column width="250px">
                 <textField id="numberField" property="number"/>
                 <textField id="nameField" property="name"/>
+                <textField id="dimFieldWidth" property="dim.width" caption="Width"/>
+                <textField id="dimFieldLenght" property="dim.lenght" caption="Length"/>
+                <textField id="dimFieldHeight" property="dim.height" caption="Height"/>
                 <textField id="weightField" property="weight"/>
                 <textField id="chargeField" property="charge"/>
                 <pickerField id="waybillField" property="waybill">

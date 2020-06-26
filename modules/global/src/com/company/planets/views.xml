@@ -37,8 +37,12 @@
         </property>
     </view>
     <view entity="planets_WaybillItem" name="waybillItem-view" extends="_local">
+        <property name="dim" view="_minimal">
+            <property name="lenght"/>
+            <property name="width"/>
+            <property name="height"/>
+        </property>
         <property name="waybill" view="_minimal">
-            <property name="reference"/>
             <property name="departurePort" view="_minimal"/>
             <property name="destinationPort" view="_minimal"/>
             <property name="carrier" view="_minimal"/>
@@ -49,6 +53,9 @@
         <property name="gas" view="_minimal"/>
     </view>
     <view entity="planets_Waybill" name="waybill-view" extends="_local">
+        <property name="shipper" view="_minimal">
+            <property name="grade"/>
+        </property>
         <property name="consignee" view="_minimal"/>
         <property name="departurePort" view="_minimal"/>
         <property name="destinationPort" view="_minimal"/>
@@ -56,7 +63,11 @@
         <property name="items" view="_minimal">
             <property name="number"/>
             <property name="weight"/>
-            <property name="dim" view="_minimal"/>
+            <property name="dim" view="_minimal">
+                <property name="lenght"/>
+                <property name="width"/>
+                <property name="height"/>
+            </property>
             <property name="charge"/>
         </property>
     </view>

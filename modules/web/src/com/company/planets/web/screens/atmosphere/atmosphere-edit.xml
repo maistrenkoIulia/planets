@@ -35,9 +35,9 @@
                     <column id="volume"/>
                 </columns>
                 <buttonsPanel>
-                    <button id="createBtn"
+                    <button id="addBtn"
                             action="gasesTable.add"/>
-                    <button id="editBtn"
+                    <button id="excludeBtn"
                             action="gasesTable.exclude"/>
                 </buttonsPanel>
             </table>

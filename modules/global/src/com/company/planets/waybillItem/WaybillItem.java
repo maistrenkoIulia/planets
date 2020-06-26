@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class WaybillItem extends StandardEntity {
     private static final long serialVersionUID = 501791523407951208L;
 
-    @Column(name = "NUMBER_")
+    @Column(name = "NUMBER_", unique = true)
     protected Integer number;
 
     @Column(name = "NAME", unique = true)
