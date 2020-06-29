@@ -31,6 +31,7 @@
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
+                <action id="list" type="listPrintForm" caption="PrintDetails"/>
             </actions>
             <columns>
                 <column id="reference"/>
@@ -47,6 +48,7 @@
                 <button id="createBtn" action="waybillsTable.create"/>
                 <button id="editBtn" action="waybillsTable.edit"/>
                 <button id="removeBtn" action="waybillsTable.remove"/>
+                <button id="listBtn" action="waybillsTable.list"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
