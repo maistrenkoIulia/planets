@@ -51,7 +51,7 @@
         </groupBox>
         <hbox id="editActions" spacing="true">
             <button  id = "Ok" action="windowCommitAndClose" caption="Ok"/>
-            <button action="windowClose" caption="Cancel"/>
+            <button id="windowClose" action="windowClose" caption="Cancel"/>
         </hbox>
     </layout>
 </window>

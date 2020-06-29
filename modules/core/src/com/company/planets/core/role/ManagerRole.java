@@ -31,37 +31,37 @@ public class ManagerRole extends AnnotatedRoleDefinition {
         return super.screenPermissions();
     }
 
+    @EntityAccess(entityClass = Atmosphere.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = AtmosphericGas.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Carrier.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Company.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Customer.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Discounts.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Gas.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Individual.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Moon.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Planet.class, operations = EntityOp.READ)
+    @EntityAccess(entityClass = Spaceport.class, operations = EntityOp.READ)
     @EntityAccess(entityClass = Waybill.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
     @EntityAccess(entityClass = WaybillItem.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Individual.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Spaceport.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Planet.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Moon.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Gas.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Discounts.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Customer.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Company.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Carrier.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = AtmosphericGas.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
-    @EntityAccess(entityClass = Atmosphere.class, operations = {EntityOp.CREATE, EntityOp.UPDATE, EntityOp.READ, EntityOp.DELETE})
     @Override
     public EntityPermissionsContainer entityPermissions() {
         return super.entityPermissions();
     }
 
+    @EntityAttributeAccess(entityClass = Atmosphere.class, view = "*")
+    @EntityAttributeAccess(entityClass = AtmosphericGas.class, view = "*")
+    @EntityAttributeAccess(entityClass = Carrier.class, view = "*")
+    @EntityAttributeAccess(entityClass = Company.class, view = "*")
+    @EntityAttributeAccess(entityClass = Customer.class, view = "*")
+    @EntityAttributeAccess(entityClass = Discounts.class, view = "*")
+    @EntityAttributeAccess(entityClass = Gas.class, view = "*")
+    @EntityAttributeAccess(entityClass = Individual.class, view = "*")
+    @EntityAttributeAccess(entityClass = Moon.class, view = "*")
+    @EntityAttributeAccess(entityClass = Planet.class, view = "*")
+    @EntityAttributeAccess(entityClass = Spaceport.class, view = "*")
     @EntityAttributeAccess(entityClass = Waybill.class, modify = "*")
     @EntityAttributeAccess(entityClass = WaybillItem.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Individual.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Spaceport.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Planet.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Moon.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Gas.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Discounts.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Customer.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Company.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Carrier.class, modify = "*")
-    @EntityAttributeAccess(entityClass = AtmosphericGas.class, modify = "*")
-    @EntityAttributeAccess(entityClass = Atmosphere.class, modify = "*")
     @Override
     public EntityAttributePermissionsContainer entityAttributePermissions() {
         return super.entityAttributePermissions();
