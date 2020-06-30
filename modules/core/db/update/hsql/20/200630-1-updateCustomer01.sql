@@ -1,0 +1,1 @@
+drop index IDX_PLANETS_CUSTOMER_ID_UNQ ;

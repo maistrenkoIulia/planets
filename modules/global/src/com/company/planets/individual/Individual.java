@@ -3,11 +3,13 @@ package com.company.planets.individual;
 import com.company.planets.customer.Customer;
 import com.haulmont.chile.core.annotations.NamePattern;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
-@Entity(name = "planets_Individual")
-@NamePattern("%s|firstName")
+@Entity(name ="planets_Individual")
+@DiscriminatorValue("INDIVIDUAL")
+@Table(name = "PLANETS_INDIVIDUAL")
+@PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
+@NamePattern("%s|name")
 public class Individual extends Customer {
     private static final long serialVersionUID = 4020718669857153606L;
 

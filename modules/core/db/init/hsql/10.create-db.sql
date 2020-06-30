@@ -59,19 +59,11 @@ create table PLANETS_CUSTOMER (
     UPDATED_BY varchar(50),
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
-    DTYPE varchar(31),
+    TYPE varchar(31),
     --
     NAME varchar(255),
     EMAIL varchar(255),
     GRADE varchar(50),
-    --
-    -- from planets_Individual
-    FIRST_NAME varchar(255),
-    LAST_NAME varchar(255),
-    --
-    -- from planets_Company
-    REGISTRATION_ID varchar(255),
-    COMPANY_TYPE varchar(255),
     --
     primary key (ID)
 )^
@@ -229,3 +221,23 @@ create table PLANETS_CARRIER_SPACEPORT_LINK (
     primary key (SPACEPORT_ID, CARRIER_ID)
 )^
 -- end PLANETS_CARRIER_SPACEPORT_LINK
+-- begin PLANETS_INDIVIDUAL
+create table PLANETS_INDIVIDUAL (
+    ID varchar(36) not null,
+    --
+    FIRST_NAME varchar(255),
+    LAST_NAME varchar(255),
+    --
+    primary key (ID)
+)^
+-- end PLANETS_INDIVIDUAL
+-- begin PLANETS_COMPANY
+create table PLANETS_COMPANY (
+    ID varchar(36) not null,
+    --
+    REGISTRATION_ID varchar(255),
+    COMPANY_TYPE varchar(255),
+    --
+    primary key (ID)
+)^
+-- end PLANETS_COMPANY

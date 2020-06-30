@@ -4,14 +4,17 @@ import com.company.planets.customerGrade.CustomerGrade;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 @NamePattern("%s|name")
-@Table(name = "PLANETS_CUSTOMER")
+@Table(name = "PLANETS_CUSTOMER", uniqueConstraints = {
+        @UniqueConstraint(name = "IDX_PLANETS_CUSTOMER_ID_UNQ", columnNames = {"DTYPE", "DELETE_TS"})
+})
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorValue("CUSTOMER")
 @Entity(name = "planets_Customer")
+@DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
 public class Customer extends StandardEntity {
     private static final long serialVersionUID = 5188841449931402105L;
 

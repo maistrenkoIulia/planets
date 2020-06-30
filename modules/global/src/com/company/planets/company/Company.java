@@ -1,11 +1,15 @@
 package com.company.planets.company;
 
 import com.company.planets.customer.Customer;
+import com.haulmont.chile.core.annotations.NamePattern;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
+@DiscriminatorValue("COMPANY")
+@Table(name = "PLANETS_COMPANY")
 @Entity(name = "planets_Company")
+@PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
+@NamePattern("%s|name")
 public class Company extends Customer {
     private static final long serialVersionUID = -2444277283854103468L;
 
